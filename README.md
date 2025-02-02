@@ -1,3 +1,4 @@
+# Projeto de Sistemas Digitais 2
 ## Lazer turret
 - um projeto da faculdade que consiste em um robo de 2 motores axiais
 - o movimento do robo é controlado pelo mouse usando python

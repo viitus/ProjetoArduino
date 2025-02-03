@@ -44,6 +44,11 @@ while running:
             servo_x = int(180 - (current_mouse_x / screen_width) * 180)
             servo_y = int((current_mouse_y / screen_height) * 180)
 
+            # Debug prints
+            print(f"Mouse X: {current_mouse_x}, Mouse Y: {current_mouse_y}")
+            print(f"Servo X: {servo_x}, Servo Y: {servo_y}")
+            print(f"Command: {servo_x},{servo_y},{laser_command}")
+
             # Envia os comandos para os servos e o lazer
             command = f"{servo_x},{servo_y},{laser_command}"
             arduino.write(command.encode('utf-8'))

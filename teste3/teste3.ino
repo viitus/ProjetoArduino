@@ -33,8 +33,8 @@ void loop() {
     data.trim(); // Remove espaços em branco extras
 
     // Variáveis para armazenar os valores recebidos
-    int x = 90; // Valor padrão para o eixo X
-    int y = 90; // Valor padrão para o eixo Y
+    int x = 0; // Valor padrão para o eixo X
+    int y = 0; // Valor padrão para o eixo Y
     int laser = 0; // Valor padrão para o laser (desligado)
 
     // Encontra as posições das vírgulas

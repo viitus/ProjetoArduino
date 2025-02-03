@@ -42,7 +42,7 @@ while running:
 
         if current_time - last_sent_time > 0.03: 
             servo_x = int(180 - (current_mouse_x / screen_width) * 180)
-            servo_y = int(180 - (current_mouse_y / screen_height) * 180)
+            servo_y = int((current_mouse_y / screen_height) * 180)
 
             # Envia os comandos para os servos e o lazer
             command = f"{servo_x},{servo_y},{laser_command}"

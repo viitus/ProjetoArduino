@@ -17,10 +17,6 @@ void setup() {
   // Configura o pino do laser como saída
   pinMode(laserPin, OUTPUT);
 
-  // Posiciona os servos no centro
-  //servoX.write(90); // Centro no eixo X (0-180)
-  //servoY.write(90); // Centro no eixo Y (0-90)
-
   // Desliga o laser inicialmente
   digitalWrite(laserPin, LOW);
 
@@ -53,8 +49,8 @@ void loop() {
       laser = data.substring(secondComma + 1).toInt();
 
       // Limita os valores de X e Y aos intervalos permitidos
-      x = constrain(x, -180, 180); // Eixo X: 0 a 180 graus
-      y = constrain(y, -180, 180);  // Eixo Y: 0 a 90 graus
+      x = constrain(x, -180, 180); 
+      y = constrain(y, -180, 180);  
 
       // Move os servos para as posições especificadas
       servoX.write(x);

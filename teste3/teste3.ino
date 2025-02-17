@@ -13,16 +13,13 @@ void setup() {
   // Inicializa os servos
   servoX.attach(servoXPin);
   servoY.attach(servoYPin);
-
   // Configura o pino do laser como saída
   pinMode(laserPin, OUTPUT);
-
   // Desliga o laser inicialmente
   digitalWrite(laserPin, LOW);
-
   // Inicializa a comunicação serial
   Serial.begin(9600);
-  Serial.println("Sistema inicializado. Aguardando comandos...");
+  // Serial.println("Sistema inicializado. Aguardando comandos...");
 }
 
 void loop() {
@@ -60,9 +57,9 @@ void loop() {
       digitalWrite(laserPin, laser == 1 ? HIGH : LOW);
 
       // Exibe os valores recebidos no monitor serial para depuração
-      Serial.print("X: "); Serial.print(x);
-      Serial.print(" | Y: "); Serial.print(y);
-      Serial.print(" | Laser: "); Serial.println(laser);
+      // Serial.print("X: "); Serial.print(x);
+      // Serial.print(" | Y: "); Serial.print(y);
+      // Serial.print(" | Laser: "); Serial.println(laser);
     } else {
       // Se o formato dos dados estiver incorreto, exibe uma mensagem de erro
       Serial.println("Erro: Formato de dados inválido!");

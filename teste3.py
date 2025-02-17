@@ -3,16 +3,19 @@ import serial
 import pyautogui
 import time
 
+# Porta do Arduino
 arduino_port = 'COM4'
 baud_rate = 9600
 arduino = serial.Serial(arduino_port, baud_rate, timeout=1)
 
 pygame.init()
 
+# Cria a tela do pygame
 screen_width, screen_height = pygame.display.Info().current_w, pygame.display.Info().current_h
 screen = pygame.display.set_mode((screen_width, screen_height), pygame.NOFRAME | pygame.FULLSCREEN)
 pygame.display.set_caption('Controle dos Servos com Mouse')
 
+# Reseta o mouse para o meio da Tela
 screen_x, screen_y = 0, 0
 pyautogui.moveTo(screen_x + screen_width // 2, screen_y + screen_height // 2)
 

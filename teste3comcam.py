@@ -19,7 +19,7 @@ screen = pygame.display.set_mode((screen_width, screen_height), pygame.NOFRAME |
 pygame.display.set_caption('Controle dos Servos com Mouse')
 
 # Inicialização da webcam
-cap = cv2.VideoCapture(0)  # Usa a primeira webcam encontrada
+cap = cv2.VideoCapture(1)  # Usa a primeira webcam encontrada
 
 screen_x, screen_y = 0, 0
 pyautogui.moveTo(screen_x + screen_width // 2, screen_y + screen_height // 2)
@@ -46,6 +46,7 @@ while running:
     # Captura frame da webcam
     ret, frame = cap.read()
     if ret:
+        frame = cv2.flip(frame, 1)  # Espelha horizontalmente
         frame = cv2.resize(frame, (screen_width, screen_height))  # Redimensiona para o tamanho da tela
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # Converte para RGB (Pygame usa RGB)
         frame = np.rot90(frame)  # Rotaciona para exibição correta
@@ -57,9 +58,9 @@ while running:
     if current_mouse_x != last_mouse_x or current_mouse_y != last_mouse_y:
         current_time = time.time()
 
-        if current_time - last_sent_time > 0.03:
+        if current_time - last_sent_time > 0.02:
             servo_x = int(180 - (current_mouse_x / screen_width) * 180)
-            servo_y = int(180 - (current_mouse_y / screen_height) * 180)
+            servo_y = int((current_mouse_y / screen_height) * 180)
 
             # Envia os comandos para os servos e o lazer
             command = f"{servo_x},{servo_y},{laser_command}"
